@@ -107,8 +107,6 @@ class Graph:
         vertex_check(starting_vertex, set())
 
 
-
-
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
@@ -166,7 +164,22 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
+        def vertex_check(starting_vertex, node_set, destination_vertex):
+            #base case
+            node_set.add(starting_vertex)
+            print(starting_vertex, destination_vertex)
+            if starting_vertex == destination_vertex:
+                return node_set
+            
+            #sub-set of original problem
+            v = node_set[-1] #last one
+            for neighbor in self.vertices[v]:
+                next_v = starting_vertex + [neighbor]
+                vertex_check(next_v, node_set, destination_vertex)
+        
+        vertex_check(starting_vertex, set(), destination_vertex)
+
+
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
