@@ -92,16 +92,20 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass
-
-        # visited = set()
-        # s.push(starting_vertex)
-
-        #base case
-        #is stack empty?
-
-        #sub-set of original problem
+        #nest function within a function
+        def vertex_check(starting_vertex, node_set):
+            #base case
+            if starting_vertex in node_set:
+                return
+            print(starting_vertex)
+            
+            #sub-set of original problem
+            for neighbor in self.vertices[starting_vertex]:
+                node_set.add(starting_vertex)
+                vertex_check(neighbor, node_set)
         
+        vertex_check(starting_vertex, set())
+
 
 
 
