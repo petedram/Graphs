@@ -92,7 +92,18 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
+        pass
+
+        # visited = set()
+        # s.push(starting_vertex)
+
+        #base case
+        #is stack empty?
+
+        #sub-set of original problem
+        
+
+
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -100,8 +111,24 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
         # enqueue a path to the starting node instead of the starting node
+        visited = set()
+        q = Queue()
+        q.enqueue([starting_vertex])
+
+        while q.size() > 0:
+            current_node = q.dequeue()
+            v = current_node[-1] #last one
+            print(current_node, v)
+            if v not in visited:
+                visited.add(v)
+                for neighbor in self.vertices[v]:
+                    next_v = current_node + [neighbor]
+                    if neighbor == destination_vertex:
+                        return next_v #includes neighbor
+                    #if not
+                    q.enqueue(next_v)
+
 
     def dfs(self, starting_vertex, destination_vertex):
         """
