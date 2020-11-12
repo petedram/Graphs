@@ -29,7 +29,7 @@ class Graph:
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        return self.vertices[vertex_id]
 
     def bft(self, starting_vertex):
         """
@@ -60,7 +60,7 @@ class Graph:
                 visited.add(current_node)
 
         ###get the neighbors 
-                neighbors = self.get_neighbors()
+                neighbors = self.get_neighbors(current_node)
                 for neighbor in neighbors:
                     q.enqueue(neighbor)
 
